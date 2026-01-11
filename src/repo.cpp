@@ -2,6 +2,7 @@
 #include "util.hpp"
 #include <sstream>
 #include <algorithm>
+#include <ostream>
 
 static uint64_t ID_COUNTER = 1;
 
@@ -156,4 +157,9 @@ std::vector<std::string> Repo::status() const {
     std::vector<std::string> out;
     for (auto &kv : staging_) out.push_back(std::string("staged: ") + kv.first);
     return out;
+}
+
+void Repo::show(std::ostream &os) const {
+    (void)os;
+    // TODO: print the full internal structure
 }

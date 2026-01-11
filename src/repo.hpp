@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <memory>
 #include <vector>
+#include <iosfwd>
 #include "storage.hpp"
 
 struct Commit {
@@ -28,6 +29,9 @@ public:
     std::vector<std::string> merge(const std::string &branch_name);
     std::vector<std::string> status() const;
 
+    // NEW FUNCTION (candidate must implement it in repo.cpp)
+    void show(std::ostream &os) const;
+    
     std::shared_ptr<Commit> head() const { return head_; }
 
 private:

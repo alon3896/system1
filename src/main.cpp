@@ -16,7 +16,7 @@ int main() {
         std::string cmd; iss >> cmd;
 
         if (cmd=="help") {
-            std::cout << "commands: init add commit log checkout branch checkout-branch merge status exit\n";
+            std::cout << "commands: init add commit log checkout branch checkout-branch merge status show exit\n";
 
         } else if (cmd=="init") {
             r.init();
@@ -66,6 +66,9 @@ int main() {
         } else if (cmd=="status") {
             auto s = r.status();
             for (auto &x: s) std::cout<<x<<"\n";
+
+        }else if (cmd=="show") {
+            r.show(std::cout);
 
         } else if (cmd=="exit") {
             break;
